@@ -1,5 +1,5 @@
 <?php
-function getEmployees() {
+function showEmployees() {
   require_once("views/employees.php");
 }
 

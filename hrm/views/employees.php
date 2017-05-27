@@ -1,5 +1,5 @@
 <?php
-require_once("dbconf.php");
+include("dbconf.php");
 
 mb_internal_encoding( "UTF-8" );
 
@@ -7,7 +7,7 @@ $conn=mysqli_connect($host, $user, $password, $db);
 // Check connection
 if (mysqli_connect_errno())
   {
-  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  echo "Andmebaasiga ühendumisel tekkis viga: " . mysqli_connect_error();
   }
 
   $sql = "SELECT id, firstname, lastname, email, reg_date FROM person";
@@ -31,13 +31,14 @@ if (mysqli_connect_errno())
           . $row["lastname"]. "</td><td>"
           . $row["email"] . "</td><td>"
           . $row["reg_date"] . "</td><td class='button-cell'>"
-          . "<button>Muuda</button></td><td class='button-cell'>"
-          . "<button>Kustuta</button>"
+          . "<button class='edit-button'>Muuda</button></td><td class='button-cell'>"
+          . "<button onclick='deleteEmployee("
+          . $row["id"]. ")'>Kustuta</button>"
           . "</td></tr>";
       }
       echo "</table>";
   } else {
-      echo "0 results";
+      echo "Tulemused puuduvad";
   }
 
 mysqli_close($conn);

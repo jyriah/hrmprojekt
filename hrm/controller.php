@@ -3,32 +3,32 @@ require_once("resources.php");
 
 switch ($_GET["action"]) {
   case 'employees':
-    getEmployees();
+    showEmployees();
     break;
 
   case 'departments':
-    echo "Osakonnad";
+    echo "Osakonnad varsti kohe-kohe tulemas";
     break;
 
   case 'occupations':
-    echo "Ametid";
+    echo "Ametid varsti kohe-kohe tulemas";
     break;
 
 
   case 'freejobs':
-    echo "Vakantsid";
+    echo "Vakantsid varsti kohe-kohe tulemas";
     break;
 
   case 'candidates':
-    echo "Kandidaadid";
+    echo "Kandidaadid varsti kohe-kohe tulemas";
     break;
 
   case 'appraisals':
-    echo "Arenguvestlused";
+    echo "Arenguvestlused varsti kohe-kohe tulemas";
     break;
 
   case 'trainings':
-    echo "Koolitused";
+    echo "Koolitused varsti kohe-kohe tulemas";
     break;
 
   default:
