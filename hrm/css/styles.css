@@ -11,6 +11,13 @@ a {
 	text-transform: uppercase;
 	padding: 10px;
 }
+button {
+	text-transform: uppercase;
+	padding: 8px 12px;
+	border: none;
+	font-weight: bold;
+	color: #666;
+}
 table {
 	font-size: 1.1rem;
 	color: #333333;
@@ -23,7 +30,7 @@ td, th {
 	padding: 5px 10px;
 }
 tr:hover {
-	background: #db6e6e;
+	background: #ddd;
 }
 .main {
 	width: 90%;
@@ -43,7 +50,7 @@ tr:hover {
 	font-size: 1.3rem;
 	color: #333333;
 }
-.menu ul li a:hover {
+.menu ul li a:hover, button:hover {
 	color: #f9f9f9;
 	background: #DC0000;
 }
@@ -52,4 +59,8 @@ tr:hover {
 }
 .data {
 	margin-left: 30px;
+}
+.button-cell {
+	padding: 0 2px;
+	background-color: #fff;
 }

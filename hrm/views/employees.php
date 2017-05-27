@@ -21,8 +21,6 @@ if (mysqli_connect_errno())
           <th>Perenimi</th>
           <th>Email</th>
           <th>Reg. aeg</th>
-          <th></th>
-          <th></th>
         </tr>";
 
       // output data of each row
@@ -32,8 +30,8 @@ if (mysqli_connect_errno())
           . $row["firstname"]. "</td><td>"
           . $row["lastname"]. "</td><td>"
           . $row["email"] . "</td><td>"
-          . $row["reg_date"] . "</td><td>"
-          . "<button>Muuda</button></td><td>"
+          . $row["reg_date"] . "</td><td class='button-cell'>"
+          . "<button>Muuda</button></td><td class='button-cell'>"
           . "<button>Kustuta</button>"
           . "</td></tr>";
       }
