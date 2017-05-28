@@ -48,7 +48,7 @@ if (mysqli_connect_errno())
       }
       echo "</table>";
   } else {
-      echo "Tulemused puuduvad";
+      echo "Päringule ei leitud ühtegi vastust.";
   }
 
 mysqli_close($conn);

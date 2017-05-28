@@ -68,3 +68,14 @@ tr:hover {
 .edit-button:hover {
 	background: #008000;
 }
+.coming-soon {
+	padding: 10px;
+	font-size: 3rem;
+	color: #DC0000;
+}
+.edit-page tr {
+	background-color: #fff;
+}
+.edit-page td {
+	text-align: left;
+}

@@ -7,28 +7,28 @@ switch ($_GET["action"]) {
     break;
 
   case 'departments':
-    echo "Osakonnad varsti kohe-kohe tulemas";
+    echo "<p class='coming-soon'>Varsti tulemas.</p>";
     break;
 
-  case 'occupations':
-    echo "Ametid varsti kohe-kohe tulemas";
+  case 'positions':
+    echo "<p class='coming-soon'>Varsti tulemas.</p>";
     break;
 
 
   case 'freejobs':
-    echo "Vakantsid varsti kohe-kohe tulemas";
+    echo "<p class='coming-soon'>Varsti tulemas.</p>";
     break;
 
   case 'candidates':
-    echo "Kandidaadid varsti kohe-kohe tulemas";
+    echo "<p class='coming-soon'>Varsti tulemas.</p>";
     break;
 
   case 'appraisals':
-    echo "Arenguvestlused varsti kohe-kohe tulemas";
+    echo "<p class='coming-soon'>Varsti tulemas.</p>";
     break;
 
   case 'trainings':
-    echo "Koolitused varsti kohe-kohe tulemas";
+    echo "<p class='coming-soon'>Varsti tulemas.</p>";
     break;
 
   default:

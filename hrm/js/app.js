@@ -28,7 +28,7 @@ function editEmployee(id) {
       document.getElementById("data").innerHTML = this.responseText;
     }
   };
-  xhttp.open("POST", "remove_employee.php", true);
+  xhttp.open("POST", "views/edit_employee.php", true);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xhttp.send("id=" + id);
 }
