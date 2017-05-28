@@ -45,6 +45,7 @@ if (mysqli_connect_errno())
           $order_number++;
       }
       echo "</table>";
+	  echo "<div><button class='add-button' onclick='addEmployee()'>Lisa töötaja</button></div>";
   } else {
       echo "Päringule ei leitud ühtegi vastust.";
   }

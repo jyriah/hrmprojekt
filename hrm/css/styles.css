@@ -79,3 +79,13 @@ tr:hover {
 .edit-page td {
 	text-align: left;
 }
+.add-button {
+	font-size: 1.2rem;
+	background: #666;
+	color: #fff;
+	width: 100%;
+	margin-top: 10px;
+}
+.add-button:hover {
+	background: #0080ff;
+}
