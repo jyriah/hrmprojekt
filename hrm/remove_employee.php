@@ -10,7 +10,7 @@ if (mysqli_connect_errno())
   {
   echo "Andmebaasiga ühendumisel tekkis viga: " . mysqli_connect_error();
   }
-  $sql = "DELETE FROM person WHERE id=". $_POST["id"];
+  $sql = "DELETE FROM jahhundoPerson WHERE id=". $_POST["id"];
 
   if ($conn->query($sql) !== TRUE) {
       echo "Kustutamisel tekkis viga: " . $conn->error;
