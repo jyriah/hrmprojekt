@@ -12,10 +12,10 @@ $stmt = $conn->prepare("UPDATE jahhundoPosition SET position_name=?, position_de
 
 $stmt->bind_param("sssd", $position, $description, $department_id, $id);
 
-$position = $_POST["position"];
-$description = $_POST["description"];
-$department_id = $_POST["department"];
-$id = $_POST["id"];
+$position = htmlspecialchars($_POST["position"]);
+$description = htmlspecialchars($_POST["description"]);
+$department_id = htmlspecialchars($_POST["department"]);
+$id = htmlspecialchars($_POST["id"]);
 
 $stmt->execute();
 
