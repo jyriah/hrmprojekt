@@ -12,7 +12,7 @@ if (mysqli_connect_errno())
   echo "Andmebaasiga ühendumisel tekkis viga: " . mysqli_connect_error();
   }
 
-  $sql = "SELECT id, firstname, lastname, email, department, position FROM jahhundoPerson ORDER BY id";
+  $sql = "SELECT id, firstname, lastname, email, department, position FROM jahhundoPerson WHERE archived='false' ORDER BY id";
   $result = $conn->query($sql);
 
   if ($result->num_rows > 0) {
@@ -40,7 +40,7 @@ if (mysqli_connect_errno())
           . $row["id"]
           . ")'>Muuda</button></td><td class='button-cell'>"
           . "<button onclick='deleteEmployee("
-          . $row["id"]. ")'>Kustuta</button>"
+          . $row["id"]. ")'>Arhiivi</button>"
           . "</td></tr>";
           $order_number++;
       }

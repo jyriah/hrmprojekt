@@ -10,10 +10,10 @@ if (mysqli_connect_errno())
   {
   echo "Andmebaasiga ühendumisel tekkis viga: " . mysqli_connect_error();
   }
-  $sql = "DELETE FROM jahhundoPerson WHERE id=". $_POST["id"];
+  $sql = "UPDATE jahhundoPerson SET archived='true' WHERE id=". $_POST["id"];
 
   if ($conn->query($sql) !== TRUE) {
-      echo "Kustutamisel tekkis viga: " . $conn->error;
+      echo "Arhiveerimisel tekkis viga: " . $conn->error;
   }
 mysqli_close($conn);
 showEmployees();
