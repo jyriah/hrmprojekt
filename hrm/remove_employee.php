@@ -4,17 +4,20 @@ require_once("resources.php");
 
 mb_internal_encoding( "UTF-8" );
 
-$conn=mysqli_connect($host, $user, $password, $db);
+$conn= new MySQLi($host, $user, $password, $db);
 // Check connection
-if (mysqli_connect_errno())
-  {
-  echo "Andmebaasiga ühendumisel tekkis viga: " . mysqli_connect_error();
-  }
-  $sql = "UPDATE jahhundoPerson SET archived='true' WHERE id=". $_POST["id"];
+if ($conn->connect_error) {
+	echo "Andmebaasiga ühendumisel tekkis viga: " . $conn->connect_error;
+}
+$stmt = $conn->prepare("UPDATE jahhundoPerson SET archived='true' WHERE id=?");
 
-  if ($conn->query($sql) !== TRUE) {
-      echo "Arhiveerimisel tekkis viga: " . $conn->error;
-  }
-mysqli_close($conn);
+$stmt->bind_param("d", $id);
+
+$id = $_POST["id"];
+$stmt->execute();
+
+$stmt->close();
+$conn->close();
+
 showEmployees();
 ?>

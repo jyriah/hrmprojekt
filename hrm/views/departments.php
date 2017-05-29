@@ -14,7 +14,7 @@ if (mysqli_connect_errno())
   echo "Andmebaasiga ühendumisel tekkis viga: " . mysqli_connect_error();
   }
 
-  $sql = "SELECT * FROM jahhundoDepartment ORDER BY department_name";
+  $sql = "SELECT * FROM jahhundoDepartment WHERE archived='false' ORDER BY department_name";
   $result = $conn->query($sql);
 
   if ($result->num_rows > 0) {
