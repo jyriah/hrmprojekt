@@ -174,11 +174,9 @@ function editPosition(id) {
 }
 
 function modifyPosition(id) {
-	var firstname = document.getElementById("firstname").value;
-	var lastname = document.getElementById("lastname").value;
-	var department = document.getElementById("department").value;
 	var position = document.getElementById("position").value;
-	var email = document.getElementById("email").value;
+	var description = document.getElementById("description").value;
+	var department = document.getElementById("department").value;
 	
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
@@ -188,7 +186,7 @@ function modifyPosition(id) {
 	};
 	xhttp.open("POST", "modify_position.php", true);
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	xhttp.send("firstname=" + firstname + "&lastname=" + lastname + "&department=" + department + "&position=" + position + "&email=" + email + "&id=" + id);
+	xhttp.send("position=" + position + "&description=" + description + "&department=" + department + "&id=" + id);
 }
 
 function addPosition() {

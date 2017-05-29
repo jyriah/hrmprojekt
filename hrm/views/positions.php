@@ -32,7 +32,7 @@ if (mysqli_connect_errno())
 		  echo "<td>" . $order_number . "</td>";
 		  echo "<td>" . $row["position_name"] . "</td>";
 		  echo "<td>" . $row["position_desc"] . "</td>";
-		  echo "<td></td>";
+		  echo "<td>" . $row["department_id"] . "</td>";
 		  echo "<td class='button-cell'><button class='edit-button' onclick='editPosition(". $row["position_id"] . ")'>Muuda</button></td>";
 		  echo "<td class='button-cell'><button onclick='deletePosition(" . $row["position_id"] . ")'>Arhiivi</button></td>";
 		  echo "</tr>";
