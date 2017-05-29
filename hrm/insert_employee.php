@@ -4,22 +4,28 @@ require_once("dbconf.php");
 
 mb_internal_encoding( "UTF-8" );
 
-$conn=mysqli_connect($host, $user, $password, $db);
+$conn = new MySQLi($host, $user, $password, $db);
 // Check connection
-if (mysqli_connect_errno())
+if ($conn->connect_error)
 {
-	echo "Andmebaasiga ühendumisel tekkis viga: " . mysqli_connect_error();
+	echo "Andmebaasiga ühendumisel tekkis viga: " . $conn->connect_error;
 }
-$sql = "INSERT INTO jahhundoPerson (firstname, lastname, department, position, email) VALUES ('"
-	. htmlspecialchars($_POST["firstname"])  . "', '" 
-	. htmlspecialchars($_POST["lastname"]) . "', '"
-	. htmlspecialchars($_POST["department"]) . "', '"
-	. htmlspecialchars($_POST["position"]) . "', '"
-	. htmlspecialchars($_POST["email"]) . "')";
-if ($conn->query($sql) !== TRUE) {
-	echo "Lisamisel tekkis viga: " . $conn->error;
-}
-mysqli_close($conn);
+
+$stmt = $conn->prepare("INSERT INTO jahhundoPerson (firstname, lastname, department, position, email, archived) VALUES (?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("ssssss", $firstname, $lastname, $department, $position, $email, $archived);
+	
+$firstname = htmlspecialchars($_POST["firstname"]);
+$lastname = htmlspecialchars($_POST["lastname"]);
+$department = htmlspecialchars($_POST["department"]);
+$position = htmlspecialchars($_POST["position"]);
+$email = htmlspecialchars($_POST["email"]);
+$archived = "false";
+
+$stmt->execute();
+
+$stmt->close();
+$conn->close();
+
 showEmployees();
 ?>
 
