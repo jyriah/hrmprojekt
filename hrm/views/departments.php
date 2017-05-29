@@ -3,6 +3,8 @@ include("dbconf.php");
 
 mb_internal_encoding( "UTF-8" );
 
+echo "<div class='header header-departments'>Osakonnad</div>";
+
 $order_number = 1;
 
 $conn=mysqli_connect($host, $user, $password, $db);
