@@ -7,7 +7,7 @@ switch ($_GET["action"]) {
     break;
 
   case 'departments':
-    echo "<p class='coming-soon'>Varsti tulemas.</p>";
+    showDepartments();
     break;
 
   case 'positions':
