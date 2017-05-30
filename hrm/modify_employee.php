@@ -19,7 +19,7 @@ $lastname = htmlspecialchars($_POST["lastname"]);
 $department = htmlspecialchars($_POST["department"]);
 $position = htmlspecialchars($_POST["position"]);
 $email = htmlspecialchars($_POST["email"]);
-$id = $_POST["id"];
+$id = htmlspecialchars($_POST["id"]);
 
 $stmt->execute();
 

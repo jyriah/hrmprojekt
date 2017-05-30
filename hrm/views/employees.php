@@ -14,7 +14,7 @@ if (mysqli_connect_errno())
   echo "Andmebaasiga ühendumisel tekkis viga: " . mysqli_connect_error();
   }
 
-  $sql = "SELECT id, firstname, lastname, email, department, position FROM jahhundoPerson WHERE archived='false' ORDER BY id";
+  $sql = "SELECT jahhundoPerson.id, jahhundoPerson.firstname, jahhundoPerson.lastname, jahhundoPerson.email, jahhundoDepartment.department_name, jahhundoPerson.position FROM jahhundoPerson LEFT JOIN jahhundoDepartment ON jahhundoPerson.department_id=jahhundoDepartment.department_id WHERE jahhundoPerson.archived='false' ORDER BY id";
   $result = $conn->query($sql);
 
   if ($result->num_rows > 0) {
@@ -35,7 +35,7 @@ if (mysqli_connect_errno())
 		  echo "<td>" . $row["firstname"] . "</td>";
 		  echo "<td>" . $row["lastname"] . "</td>";
 		  echo "<td>" . $row["email"] . "</td>";
-		  echo "<td>" . $row["department"] . "</td>";
+		  echo "<td>" . $row["department_name"] . "</td>";
 		  echo "<td>" . $row["position"] . "</td>";
 		  echo "<td class='button-cell'><button class='edit-button' onclick='editEmployee(". $row["id"] . ")'>Muuda</button></td>";
 		  echo "<td class='button-cell'><button onclick='deleteEmployee(" . $row["id"] . ")'>Arhiivi</button></td>";

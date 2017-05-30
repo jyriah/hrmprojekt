@@ -14,7 +14,7 @@ if (mysqli_connect_errno())
   echo "Andmebaasiga ühendumisel tekkis viga: " . mysqli_connect_error();
   }
 
-  $sql = "SELECT * FROM jahhundoDepartment WHERE archived='false' ORDER BY department_name";
+  $sql = "SELECT jahhundoDepartment.*, jahhundoPerson.firstname, jahhundoPerson.lastname FROM jahhundoDepartment LEFT JOIN jahhundoPerson ON jahhundoDepartment.department_head=jahhundoPerson.id WHERE jahhundoDepartment.archived='false' ORDER BY department_name";
   $result = $conn->query($sql);
 
   if ($result->num_rows > 0) {
@@ -32,7 +32,7 @@ if (mysqli_connect_errno())
 		  echo "<td>" . $order_number . "</td>";
 		  echo "<td>" . $row["department_name"] . "</td>";
 		  echo "<td>" . $row["department_desc"] . "</td>";
-		  echo "<td>" . $row["department_head"] . "</td>";
+		  echo "<td>" . $row["firstname"] . " " . $row["lastname"] . "</td>";
 		  echo "<td class='button-cell'><button class='edit-button' onclick='editDepartment(". $row["department_id"] . ")'>Muuda</button></td>";
 		  echo "<td class='button-cell'><button onclick='deleteDepartment(" . $row["department_id"] . ")'>Arhiivi</button></td>";
 		  echo "</tr>";

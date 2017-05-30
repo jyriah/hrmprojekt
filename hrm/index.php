@@ -15,10 +15,12 @@
 		<li><a href="#" onclick="loadView('employees')">Töötajad</a></li>
 		<li><a href="#" onclick="loadView('departments')">Osakonnad</a></li>
 		<li><a href="#" onclick="loadView('positions')">Ametid</a></li>
+		<!--
 		<li><a href="#" onclick="loadView('freejobs')">Vakantsid</a></li>
 		<li><a href="#" onclick="loadView('candidates')">Kandidaadid</a></li>
 		<li><a href="#" onclick="loadView('appraisals')">Arenguvestlused</a></li>
 		<li><a href="#" onclick="loadView('trainings')">Koolitused</a></li>
+		-->
 	</ul>
 </div>
 <div id="data"></div>

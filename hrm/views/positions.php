@@ -14,7 +14,7 @@ if (mysqli_connect_errno())
   echo "Andmebaasiga ühendumisel tekkis viga: " . mysqli_connect_error();
   }
 
-  $sql = "SELECT * FROM jahhundoPosition WHERE archived='false' ORDER BY position_name";
+  $sql = "SELECT jahhundoPosition.*, jahhundoDepartment.department_name FROM jahhundoPosition LEFT JOIN jahhundoDepartment ON jahhundoPosition.department_id=jahhundoDepartment.department_id WHERE jahhundoPosition.archived='false' ORDER BY position_name";
   $result = $conn->query($sql);
 
   if ($result->num_rows > 0) {
@@ -25,14 +25,13 @@ if (mysqli_connect_errno())
 	  echo "<th>Kirjeldus</th>";
 	  echo "<th>Osakond</th>";
 	  echo "</tr>";
-
-      // output data of each row
+	  
       while($row = $result->fetch_assoc()) {
 		  echo "<tr>";
 		  echo "<td>" . $order_number . "</td>";
 		  echo "<td>" . $row["position_name"] . "</td>";
 		  echo "<td>" . $row["position_desc"] . "</td>";
-		  echo "<td>" . $row["department_id"] . "</td>";
+		  echo "<td>" . $row["department_name"] . "</td>";
 		  echo "<td class='button-cell'><button class='edit-button' onclick='editPosition(". $row["position_id"] . ")'>Muuda</button></td>";
 		  echo "<td class='button-cell'><button onclick='deletePosition(" . $row["position_id"] . ")'>Arhiivi</button></td>";
 		  echo "</tr>";

@@ -19,6 +19,9 @@ button {
 	color: #666;
 	width: 100px;
 }
+input, select, textarea {
+	width: 200px;
+}
 table {
 	font-size: 1.1rem;
 	color: #333333;
