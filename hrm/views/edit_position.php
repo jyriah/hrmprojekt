@@ -58,7 +58,7 @@ if ($result->num_rows > 0) {
 	echo "</select>";
 	  
 } else {
-	echo "Päringule ei leitud ühtegi vastust.";
+	echo "";
 }
 
 echo "</td>

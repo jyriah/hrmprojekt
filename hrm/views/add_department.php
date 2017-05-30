@@ -1,5 +1,14 @@
 <?php
+require_once("../dbconf.php");
 
+mb_internal_encoding( "UTF-8" );
+
+$conn = new MySQLi($host, $user, $password, $db);
+
+// Check connection
+if ($conn->connect_error) {
+	echo "Andmebaasiga ühendumisel tekkis viga: " . $conn->connect_error;
+}
 echo
 "
   <table class='edit-page'>
@@ -15,7 +24,28 @@ echo
 	<tr>
 	<tr>
 	  <td>Juht: </td>
-	  <td><input type='text' id='head' value='' maxlength='30'></input></td>
+	  <td>";
+
+$stmt = $conn->prepare("SELECT id, firstname, lastname FROM jahhundoPerson WHERE archived='false'");
+
+$stmt->execute();
+
+$result = $stmt->get_result();
+
+if ($result->num_rows > 0) {
+	echo "<select id='head'>";
+	
+	while($row = $result->fetch_assoc()) {
+		echo "<option value='" . $row["id"] . "'>" . $row["firstname"] . " ". $row["lastname"] . "</option>";
+	}
+	echo "</select>";
+	  
+} else {
+	echo "";
+}
+
+echo
+	"</td>
 	</tr>
 	<tr>
 	  <td></td>

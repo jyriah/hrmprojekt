@@ -11,7 +11,7 @@ if ($conn->connect_error)
 	echo "Andmebaasiga ühendumisel tekkis viga: " . $conn->connect_error;
 }
 
-$stmt = $conn->prepare("UPDATE jahhundoPerson SET firstname=?, lastname=?, department=?, position=?, email=? WHERE id=?");
+$stmt = $conn->prepare("UPDATE jahhundoPerson SET firstname=?, lastname=?, department_id=?, position_id=?, email=? WHERE id=?");
 $stmt->bind_param("sssssd", $firstname, $lastname, $department, $position, $email, $id);
 	
 $firstname = htmlspecialchars($_POST["firstname"]);

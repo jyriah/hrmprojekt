@@ -31,7 +31,7 @@ if (mysqli_connect_errno())
 		  echo "<tr>";
 		  echo "<td>" . $order_number . "</td>";
 		  echo "<td>" . $row["department_name"] . "</td>";
-		  echo "<td>" . $row["department_desc"] . "</td>";
+		  echo "<td class='description'>" . $row["department_desc"] . "</td>";
 		  echo "<td>" . $row["firstname"] . " " . $row["lastname"] . "</td>";
 		  echo "<td class='button-cell'><button class='edit-button' onclick='editDepartment(". $row["department_id"] . ")'>Muuda</button></td>";
 		  echo "<td class='button-cell'><button onclick='deleteDepartment(" . $row["department_id"] . ")'>Arhiivi</button></td>";

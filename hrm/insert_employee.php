@@ -11,7 +11,7 @@ if ($conn->connect_error)
 	echo "Andmebaasiga ühendumisel tekkis viga: " . $conn->connect_error;
 }
 
-$stmt = $conn->prepare("INSERT INTO jahhundoPerson (firstname, lastname, department, position, email, archived) VALUES (?, ?, ?, ?, ?, ?)");
+$stmt = $conn->prepare("INSERT INTO jahhundoPerson (firstname, lastname, department_id, position_id, email, archived) VALUES (?, ?, ?, ?, ?, ?)");
 $stmt->bind_param("ssssss", $firstname, $lastname, $department, $position, $email, $archived);
 	
 $firstname = htmlspecialchars($_POST["firstname"]);

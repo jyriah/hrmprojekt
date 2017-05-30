@@ -39,7 +39,28 @@ echo
 	<tr>
 	<tr>
 	  <td>Juht: </td>
-	  <td><input type='text' id='head' value='".$row["department_head"]."' maxlength='30'></input></td>
+	  <td>";
+
+$stmt = $conn->prepare("SELECT id, firstname, lastname FROM jahhundoPerson WHERE archived='false'");
+
+$stmt->execute();
+
+$result = $stmt->get_result();
+
+if ($result->num_rows > 0) {
+	echo "<select id='head'>";
+	
+	while($row = $result->fetch_assoc()) {
+		echo "<option value='" . $row["id"] . "'>" . $row["firstname"] . " ". $row["lastname"] . "</option>";
+	}
+	echo "</select>";
+	  
+} else {
+	echo "";
+}
+
+echo 
+	"</td>
 	</tr>
 	<tr>
 	  <td></td>
