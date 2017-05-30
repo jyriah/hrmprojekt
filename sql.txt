@@ -1,0 +1,38 @@
+mysql> describe jahhundoPerson;
++---------------+----------------------+------+-----+---------+----------------+
+| Field         | Type                 | Null | Key | Default | Extra          |
++---------------+----------------------+------+-----+---------+----------------+
+| id            | int(6) unsigned      | NO   | PRI | NULL    | auto_increment |
+| firstname     | varchar(30)          | NO   |     | NULL    |                |
+| lastname      | varchar(30)          | NO   |     | NULL    |                |
+| department_id | int(6) unsigned      | NO   |     | NULL    |                |
+| position_id   | int(6) unsigned      | NO   |     | NULL    |                |
+| email         | varchar(30)          | YES  |     | NULL    |                |
+| archived      | enum('true','false') | YES  |     | NULL    |                |
++---------------+----------------------+------+-----+---------+----------------+
+7 rows in set (0.00 sec)
+
+mysql> DESCRIBE jahhundoPosition;
++---------------+----------------------+------+-----+---------+----------------+
+| Field         | Type                 | Null | Key | Default | Extra          |
++---------------+----------------------+------+-----+---------+----------------+
+| position_id   | int(6) unsigned      | NO   | PRI | NULL    | auto_increment |
+| position_name | varchar(30)          | NO   |     | NULL    |                |
+| position_desc | varchar(300)         | YES  |     | NULL    |                |
+| archived      | enum('false','true') | YES  |     | NULL    |                |
+| department_id | int(6) unsigned      | NO   |     | NULL    |                |
++---------------+----------------------+------+-----+---------+----------------+
+5 rows in set (0.00 sec)
+
+
+mysql> DESCRIBE jahhundoDepartment;
++-----------------+----------------------+------+-----+---------+----------------+
+| Field           | Type                 | Null | Key | Default | Extra          |
++-----------------+----------------------+------+-----+---------+----------------+
+| department_id   | int(6) unsigned      | NO   | PRI | NULL    | auto_increment |
+| department_name | varchar(30)          | NO   |     | NULL    |                |
+| department_head | int(6) unsigned      | NO   | MUL | NULL    |                |
+| department_desc | varchar(300)         | YES  |     | NULL    |                |
+| archived        | enum('false','true') | YES  |     | NULL    |                |
++-----------------+----------------------+------+-----+---------+----------------+
+5 rows in set (0.00 sec)
